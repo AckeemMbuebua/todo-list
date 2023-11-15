@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Liste de Tâches</title>
+</head>
+<body>
+    <input id="newItem" placeholder="Nouvelle tâche">
+    <button onclick="add()">Ajouter</button>
+    <ul id="myUl">Liste de tâches</ul>
+
+    <script>
+        const ul = document.getElementById("myUl");
+
+        // Fonction pour ajouter une tâche
+        function add() {
+            const item = document.getElementById("newItem").value;
+            const itemTxt = document.createTextNode(item);
+            const li = document.createElement("li");
+            const btn = document.createElement("button");
+            const btnx = document.createTextNode("x");
+
+            btn.setAttribute("onclick", "remove()");
+            btn.appendChild(btnx);
+            li.appendChild(itemTxt);
+            li.appendChild(btn);
+            ul.appendChild(li);
+
+            // Mettre à jour le localStorage
+            localStorage["list"] = ul.innerHTML;
+        }
+
+        // Fonction pour supprimer une tâche
+        function remove() {
+            const task = event.currentTarget.parentNode;
+            ul.removeChild(task);
+
+            // Mettre à jour le localStorage
+            localStorage["list"] = ul.innerHTML;
+        }
+
+        // Charger la liste depuis le localStorage
+        if (localStorage["list"]) {
+            ul.innerHTML = localStorage["list"];
+        }
+    </script>
+</body>
+</html>
