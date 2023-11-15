@@ -1,21 +1,3 @@
-// let database=[];
-// let TableTasks={
-//     task:"",
-//     statut:false
-// }
-
-// function completDada(value) {
-//     task=inputValeur.value;
-//     statut=false;
-// }
-
-// TableTasks.push(completDada);
-// database.push(TableTasks);
-// let Ligne=document.querySelector('#afficher');
-
-// btn_add.addEventListener('click', completDada);
-// console.log(database);
-// console.log(TableTasks);
 
 let tbody = document.querySelector("#afficher");
 let inputValeur = document.querySelector('#inputValeur');
